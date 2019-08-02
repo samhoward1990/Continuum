@@ -1,19 +1,23 @@
-.bg-black{
+.bg-black {
     background-color: black;
 
 }
 
-.row-height{
+.row-height {
     height: 1000px;
 
 }
 
-.gray{
+.gray { 
     background-color: #808080;
 
 }
 
+<<<<<<< HEAD
 body{
     background-color:black;
     
 }
+=======
+
+>>>>>>> master
