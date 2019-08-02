@@ -18,12 +18,13 @@ var database = firebase.database();
 // watch for on click on form submit button
 $("#submit").on("click", function (event) {
     event.preventDefault();
+    // save form values as variables
     var firstName = $("#first-name").val().trim();
     var lastName = $("#last-name").val().trim();
     var email = $("#email").val().trim();
     var destination = $("#destination").val();
     var speed = $("#speed").val();
-
+    // push data to database
     database.ref().push({
         firstName: firstName,
         lastName: lastName,
