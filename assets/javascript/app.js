@@ -10,7 +10,26 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+// stored the database as a variable
+var database = firebase.database();
+// watch for on click on form submit button
+$("#submit").on("click", function (event) {
+    event.preventDefault();
+    var firstName = $("#first-name").val().trim();
+    var lastName = $("#last-name").val().trim();
+    var email = $("#email").val().trim();
+    var destination = $("#destination").val();
+    var speed = $("#speed").val();
 
+    database.ref().push({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        destination: destination,
+        speed: speed
+    })
+
+});
 $(document).ready(function () {
 
     // var queryURL = "https://images-api.nasa.gov/search?q="
