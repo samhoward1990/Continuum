@@ -87,8 +87,8 @@ $(document).ready(function () {
                     // pushes images returned from the NASA API call into html -RS
                     for (var i = 0; i < 4; i++) {
                         var nasaImageURL = nasaResponse.collection.items[i].links[0].href;
-                        var nasaImageDiv = $("<div>");
-                        var nasaImage = $("<img>");
+                        var nasaImageDiv = $("<div class='col-sm-4 col-md-4 col-lg-4'>");
+                        var nasaImage = $("<img class='img-fluid'>");
                         nasaImage.attr("src", nasaImageURL)
                         nasaImageDiv.append(nasaImage);
                         $("#display-destination-image").append(nasaImageDiv)
