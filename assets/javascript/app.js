@@ -38,6 +38,27 @@ $(document).ready(function () {
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=AIzaSyBwnn85wMUw6B5v3IqxC2R54yYytQu2ChQ"
 
 
+<<<<<<< Updated upstream
+=======
+    $.ajax({
+        url: nasaURL,
+        method: "GET"
+    })
+        .then(function(nasaResponse){
+            console.log(nasaURL);   
+            console.log(nasaResponse);
+            
+            for (var i=0; i < 4; i++) {
+                var nasaImageURL = nasaResponse.collection.items[i].links[0].href;
+                console.log(nasaImageURL);
+                var nasaImageDiv = $("<div class='col-sm-6 col-md-6 col-md-6'>");
+                var nasaImage = $("<img class='img-fluid'>");
+                nasaImage.attr("src", nasaImageURL)
+                nasaImageDiv.append(nasaImage);
+                nasaImageDiv.appendTo($("#display-planets"));
+            }
+        });
+>>>>>>> Stashed changes
 
 
         // destination 
