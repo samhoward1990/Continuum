@@ -1,37 +1,44 @@
 $(document).ready(function () {
-// Intialize firebase
-var firebaseConfig = {
-    apiKey: "AIzaSyATFDUF2_xSvh_GtpEHJyy6zvdeMUUoXaA",
-    authDomain: "continuum-7ea8b.firebaseapp.com",
-    databaseURL: "https://continuum-7ea8b.firebaseio.com",
-    projectId: "continuum-7ea8b",
-    storageBucket: "",
-    messagingSenderId: "755582892592",
-    appId: "1:755582892592:web:a171da16a813efa4"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-// stored the database as a variable
-var database = firebase.database();
-// watch for on click on form submit button
-$("#submit").on("click", function (event) {
-    event.preventDefault();
-    // save form values as variables
-    var firstName = $("#first-name").val().trim();
-    var lastName = $("#last-name").val().trim();
-    var email = $("#email").val().trim();
-    var destination = $("#destination").val();
-    var speed = $("#speed").val();
-    // push data to database
-    database.ref().push({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        destination: destination,
-        speed: speed
-    })
+    // Intialize firebase
+    var firebaseConfig = {
+        apiKey: "AIzaSyATFDUF2_xSvh_GtpEHJyy6zvdeMUUoXaA",
+        authDomain: "continuum-7ea8b.firebaseapp.com",
+        databaseURL: "https://continuum-7ea8b.firebaseio.com",
+        projectId: "continuum-7ea8b",
+        storageBucket: "",
+        messagingSenderId: "755582892592",
+        appId: "1:755582892592:web:a171da16a813efa4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    // stored the database as a variable
+    var database = firebase.database();
+    // watch for on click on form submit button
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+        // save form values as variables
+        var firstName = $("#first-name").val().trim();
+        var lastName = $("#last-name").val().trim();
+        var email = $("#email").val().trim();
+        var phoneNumber = $("#phone").val().trim();
+        var passengers = $("#passengers").val().trim();
+        var destination = $("#destination").val();
+        var speed = $("#speed").val();
+        // push data to database
+        database.ref().push({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phoneNumber: phoneNumber,
+            passengers: passengers,
+            destination: destination,
+            speed: speed
+        });
 
-});
+    });
+    database.ref().on("child_added", function (snaphshot) {
+
+    });
 
     // var queryURL = "https://images-api.nasa.gov/search?q="
     // + searchLocation 
@@ -43,35 +50,35 @@ $("#submit").on("click", function (event) {
     $(document).on("click", ".destinationImage", function () {
         $("#display-planets").empty();
         var searchLocation = $(this).attr("id");
-        
+
         var nasaURL = "https://images-api.nasa.gov/search?q="
             + searchLocation;
-            console.log(searchLocation);
+        console.log(searchLocation);
 
-    $.ajax({
-        url: nasaURL,
-        method: "GET"
-    })
-        .then(function(nasaResponse){
-            console.log(nasaURL);
-            console.log(nasaResponse);
-            
-            for (var i=0; i < 4; i++) {
-                var nasaImageURL = nasaResponse.collection.items[i].links[0].href;
-                console.log(nasaImageURL);
-                var nasaImageDiv = $("<div>");
-                var nasaImage = $("<img>");
-                nasaImage.attr("src", nasaImageURL)
-                nasaImageDiv.append(nasaImage);
-                nasaImageDiv.appendTo($("#display-planets"));
-            }
-        });
+        $.ajax({
+            url: nasaURL,
+            method: "GET"
+        })
+            .then(function (nasaResponse) {
+                console.log(nasaURL);
+                console.log(nasaResponse);
+
+                for (var i = 0; i < 4; i++) {
+                    var nasaImageURL = nasaResponse.collection.items[i].links[0].href;
+                    console.log(nasaImageURL);
+                    var nasaImageDiv = $("<div>");
+                    var nasaImage = $("<img>");
+                    nasaImage.attr("src", nasaImageURL)
+                    nasaImageDiv.append(nasaImage);
+                    nasaImageDiv.appendTo($("#display-planets"));
+                }
+            });
 
     });
 
 
 
-    
+
 
 
 });
