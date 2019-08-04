@@ -35,38 +35,6 @@ $(document).ready(function () {
 
     });
 
-
-    // RS query URLs for APIs
-    // var queryURL = "https://images-api.nasa.gov/search?q="
-    // + searchLocation 
-
-
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=AIzaSyBwnn85wMUw6B5v3IqxC2R54yYytQu2ChQ"
-
-
-
-
-        // destination 
-        ;
-
-
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
-        .then(function (response) {
-            console.log(queryURL);
-            console.log(response);
-            var results = response.data;
-
-        });
-
-
-
-
-    // var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=AIzaSyBwnn85wMUw6B5v3IqxC2R54yYytQu2ChQ"
-
     // function that listens for click on destination images then calls NASA and YouTube API -RS
     $(document).on("click", ".destinationImage", function () {
         $("#display-destination-image").empty();
@@ -95,13 +63,7 @@ $(document).ready(function () {
                         // nasaImageDiv.appendTo($("#display-destination-image"));
                     }
                 });
-            // });
 
-        // }
-        // callNASAAPI()
-        // need to pull the videoID from the youtubeID
-        // items[1].id.videoID
-        // https://www.youtube.com/watch?v=
 
 
         var callYouTubeAPI = function () {
@@ -133,5 +95,29 @@ $(document).ready(function () {
         }
         callYouTubeAPI();
     });
+
+    // This is the smooth scroll function that does not work yet
+
+    // $("a").on('click', function(event) {
+
+    //     // Make sure this.hash has a value before overriding default behavior
+    //     if (this.hash !== "") {
+    //       // Prevent default anchor click behavior
+    //       event.preventDefault();
+    
+    //       // Store hash
+    //       var hash = this.hash;
+    
+    //       // Using jQuery's animate() method to add smooth page scroll
+    //       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+    //       $('html, body').animate({
+    //         scrollTop: $(hash).offset().top
+    //       }, 1800, function(){
+       
+    //         // Add hash (#) to URL when done scrolling (default click behavior)
+    //         window.location.hash = hash;
+    //       });
+    //     } // End if
+    //   });
 
 });
