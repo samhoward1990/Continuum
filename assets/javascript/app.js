@@ -78,6 +78,7 @@ $(document).ready(function () {
 
         // RS function for NASA API Call
         // var callNASAAPI = function () {
+<<<<<<< HEAD
         var nasaURL = "https://images-api.nasa.gov/search?q=" + searchLocation;
         console.log(nasaURL);
         $.ajax({
@@ -99,6 +100,29 @@ $(document).ready(function () {
                 }
             });
         // });
+=======
+            var nasaURL = "https://images-api.nasa.gov/search?q="+searchLocation;
+            console.log(nasaURL);
+            $.ajax({
+                url: nasaURL,
+                method: "GET"
+            })
+                .then(function (nasaResponse) {
+                    console.log(nasaResponse);
+
+                    // pushes images returned from the NASA API call into html -RS
+                    for (var i = 0; i < 4; i++) {
+                        var nasaImageURL = nasaResponse.collection.items[i].links[0].href;
+                        var nasaImageDiv = $("<div class='col-sm-4 col-md-4 col-lg-4'>");
+                        var nasaImage = $("<img class='img-fluid'>");
+                        nasaImage.attr("src", nasaImageURL)
+                        nasaImageDiv.append(nasaImage);
+                        $("#display-destination-image").append(nasaImageDiv)
+                        // nasaImageDiv.appendTo($("#display-destination-image"));
+                    }
+                });
+            // });
+>>>>>>> master
 
         // }
         // callNASAAPI()
