@@ -36,43 +36,6 @@ $(document).ready(function () {
         });
 
     });
-    database.ref().on("child_added", function (snaphshot) {
-
-<<<<<<< HEAD
-    });
-
-    // RS query URLs for APIs
-    // var queryURL = "https://images-api.nasa.gov/search?q="
-    // + searchLocation 
-
-
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=AIzaSyBwnn85wMUw6B5v3IqxC2R54yYytQu2ChQ"
-
-
-
-        // destination 
-        ;
-
-
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
-        .then(function (response) {
-            console.log(queryURL);
-            console.log(response);
-            var results = response.data;
-
-        });
-
-
-
-
-    // var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=AIzaSyBwnn85wMUw6B5v3IqxC2R54yYytQu2ChQ"
-
-=======
->>>>>>> master
     // function that listens for click on destination images then calls NASA and YouTube API -RS
     $(document).on("click", ".destinationImage", function () {
         $("#display-destination-image").empty();
@@ -81,7 +44,9 @@ $(document).ready(function () {
 
         // RS function for NASA API Call
         // var callNASAAPI = function () {
-<<<<<<< HEAD
+
+
+
         var nasaURL = "https://images-api.nasa.gov/search?q=" + searchLocation;
         console.log(nasaURL);
         $.ajax({
@@ -94,41 +59,17 @@ $(document).ready(function () {
                 // pushes images returned from the NASA API call into html -RS
                 for (var i = 0; i < 4; i++) {
                     var nasaImageURL = nasaResponse.collection.items[i].links[0].href;
-                    var nasaImageDiv = $("<div>");
-                    var nasaImage = $("<img>");
+                    var nasaImageDiv = $("<div class='col-sm-4 col-md-4 col-lg-4'>");
+                    var nasaImage = $("<img class='img-fluid'>");
                     nasaImage.attr("src", nasaImageURL)
                     nasaImageDiv.append(nasaImage);
                     $("#display-destination-image").append(nasaImageDiv)
                     // nasaImageDiv.appendTo($("#display-destination-image"));
                 }
             });
-        // });
-=======
-            var nasaURL = "https://images-api.nasa.gov/search?q="+searchLocation;
-            console.log(nasaURL);
-            $.ajax({
-                url: nasaURL,
-                method: "GET"
-            })
-                .then(function (nasaResponse) {
-                    console.log(nasaResponse);
 
-                    // pushes images returned from the NASA API call into html -RS
-                    for (var i = 0; i < 4; i++) {
-                        var nasaImageURL = nasaResponse.collection.items[i].links[0].href;
-                        var nasaImageDiv = $("<div class='col-sm-4 col-md-4 col-lg-4'>");
-                        var nasaImage = $("<img class='img-fluid'>");
-                        nasaImage.attr("src", nasaImageURL)
-                        nasaImageDiv.append(nasaImage);
-                        $("#display-destination-image").append(nasaImageDiv)
-                        // nasaImageDiv.appendTo($("#display-destination-image"));
-                    }
-                });
-<<<<<<< HEAD
-            // });
->>>>>>> master
-=======
->>>>>>> master
+        // });
+
 
 
 
@@ -170,16 +111,16 @@ $(document).ready(function () {
     //     if (this.hash !== "") {
     //       // Prevent default anchor click behavior
     //       event.preventDefault();
-    
+
     //       // Store hash
     //       var hash = this.hash;
-    
+
     //       // Using jQuery's animate() method to add smooth page scroll
     //       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
     //       $('html, body').animate({
     //         scrollTop: $(hash).offset().top
     //       }, 1800, function(){
-       
+
     //         // Add hash (#) to URL when done scrolling (default click behavior)
     //         window.location.hash = hash;
     //       });
