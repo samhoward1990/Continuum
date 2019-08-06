@@ -17,3 +17,132 @@ body {
     background-color:black;
     
 }
+
+.customheadertext{
+    text-align: left;
+    color: black;
+    font-family: Helvetica",Arial,"Lucida"
+}
+
+.custombodytext{
+    text-align: left;
+    color: black;
+    font-family: Helvetica",Arial,"Lucida"
+
+}
+
+
+/* added styling for homepage and index page -RS */
+
+/* {
+    margin: 0; padding: 0;
+  } */
+
+  #container {
+    /* overflow: auto; */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+  }
+  #mainBackgroundHomePage {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: fill;
+    height: 100%; width: 100%;
+  }
+
+  #mainBackgroundIndex {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    height: 100%; width: 100%;
+  }
+  #cover {
+    position: absolute;
+    width: 100%; height: 100%;
+    /* background: url('video_cover.jpeg') no-repeat; */
+    background-size: cover;
+    background-position: center;
+  } 
+  @media (min-width: 768px) {
+    #video_controls {
+      display: none;
+    }
+  }
+
+  body {
+    text-align: center;
+    font-family: 'proxima-nova', Helvetica;
+  }
+  /* #container {
+    height: 100%;
+  } */
+
+  #overlay {
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+  }
+  #main_content {
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    /* Vertical center */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #main_content h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: 'proxima-nova-condensed', Helvetica;
+    color: #fff;
+    font-size: 90px;
+  }
+  #main_content .sub_head {
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+  }
+  #main_content .info {
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  #links {
+    margin-top: 10px;
+  }
+  #links a {
+    border: 2px solid rgba(255,255,255,0.20);
+    border-radius: 61px;
+    font-size: 12px;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    display: inline-block;
+    margin-right: 15px;
+  }
+  #footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+  }
+  #footer a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    margin: 10px;
+    font-size: 12px;
+  }
+  #footer a:first-child {
+    float: left;
+  }
+  #footer a:last-child {
+    float: right;
+  }
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
